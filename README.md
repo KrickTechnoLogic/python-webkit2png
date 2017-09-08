@@ -6,31 +6,17 @@ About
 Python script that takes screenshots (browsershots) using webkit
 
 ##Installation
-Ubuntu
+Ubuntu (Terminal)
 ------
 - Add following packages: ``apt-get install python-qt4 libqt4-webkit xvfb``
 - Install the flash plugin to screenshot Adobe Flash files: ``apt-get install flashplugin-installer``
-
-Automated installation via ```pip```
--------------------------------------
-- Install pip: ```apt-get install python-pip```
-- Install webkit2png: ```pip install webkit2png```
-
-Manual installation via Git
------------------------------
-- Install git: ``apt-get install git-core``
-- Create directory: ``mkdir python-webkit2png``
-- Clone the project: ``git clone https://github.com/adamn/python-webkit2png.git python-webkit2png``
-- Install with: ``python python-webkit2png/setup.py install``
-
-FreeBSD
--------
-- install qt4 webkit: ```www/py-qt4-webkit, www/qt4-webkit, devel/py-qt4```
-- install pip: ``devel/py-pip``
-- install via: ``pip install webkit2png``
+- Clone project via git
 
 Usage
 =====
-- For help run: ``python scripts/webkit2png -h``
+- For help run: ``python webkit2png/scripts.py -h``
+- For rendering run: ``python webkit2png/scripts.py http://www.google.de -x 1280 1200 --output=screenshot.png``
 
-![Alt Text](http://24.media.tumblr.com/tumblr_m9trixXFHn1rxlmf0o1_400.gif)
+
+REMARK: At present there is no user agent selection available. To enable this you could add the following method (overriding the super class QWebPage method):
+``def userAgentForUrl(self, url): return QString("Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1")``
